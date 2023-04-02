@@ -17,6 +17,19 @@
 }
 
 .caption {
-  left: 150px;
+  left: 50px;
   bottom: 40px;
+}
+
+.movie-card, .movie-card img {
+  width: 280px;
+  cursor: pointer;
+}
+
+.movie-slider-wrapper {
+  overflow-x: scroll;
+}
+
+.movie-slider-wrapper::-webkit-scrollbar {
+  display: none;
 }

@@ -27,3 +27,7 @@ body {
 .fw-700 {
   font-weight: 700;
 }
+
+.gray-text {
+  color: #ccc;
+}
