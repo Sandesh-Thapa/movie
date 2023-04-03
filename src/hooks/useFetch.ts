@@ -9,7 +9,9 @@ function useFetch<T>(url: string) {
     setLoading(true);
     axios
       .get(url)
-      .then((res) => setData(res.data.results))
+      .then((res) => {
+        res.data.results ? setData(res.data.results) : setData(res.data);
+      })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, [url]);

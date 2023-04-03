@@ -1,6 +1,7 @@
 import { movieType } from "./movieTypes";
 
 export type bannerPropType = {
+  infoButton?: boolean;
   movie: movieType;
 };
 

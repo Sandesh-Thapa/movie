@@ -20,7 +20,7 @@ const HeroSlider = () => {
             <div className="carousel-inner">
                 {data && data.map((movie, index) => (
                     <div key={movie.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                        <Banner movie={movie} />
+                        <Banner movie={movie} infoButton={true} />
                     </div>
                 ))}
             </div>

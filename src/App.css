@@ -33,3 +33,17 @@
 .movie-slider-wrapper::-webkit-scrollbar {
   display: none;
 }
+
+.banner-btn {
+  background: rgba(102, 99, 99, 0.7);
+  border: .5px solid #000;
+}
+
+.company-logo {
+  max-width: 100px;
+  background: #fff;
+}
+
+footer img {
+  width: 100px;
+}
