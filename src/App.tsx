@@ -1,4 +1,6 @@
-import {Routes, Route} from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import Navbar from "./components/Navbar"
 import "./App.css"
@@ -8,6 +10,8 @@ import MovieDetail from "./pages/MovieDetail"
 
 function App() {
   return (
+    <>
+    <ToastContainer />
     <div className="app d-flex flex-column justify-content-between">
       <div>
         <div className="position-absolute start-0 top-0">
@@ -20,6 +24,7 @@ function App() {
       </div>
       <Footer />
     </div>
+    </>
   )
 }
 
