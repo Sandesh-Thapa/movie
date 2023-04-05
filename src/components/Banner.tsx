@@ -53,7 +53,7 @@ const Banner = ({ movie, infoButton = false }: bannerPropType) => {
               <Link to={`/movie/${movie.id}`} className="btn px-3 py-2 banner-btn text-white"><i className="fa-solid fa-circle-info"></i> More Info</Link>
             }
             <button className="btn px-3 py-2 banner-btn text-white ms-2" onClick={openTrailerModal}>
-              <i className="fa-solid fa-circle-play"></i> Watch Trailer
+              <i className="fa-solid fa-circle-play"></i> Videos
             </button>
           </div>
           <div className="col-12 col-md-6">
@@ -82,7 +82,7 @@ const Banner = ({ movie, infoButton = false }: bannerPropType) => {
                       {videos.map(video => (
                         <div
                           key={video.id}
-                          className={`d-flex align-items-center mb-3 cursor-pointer video-list ${activeVideo === video.key ? 'active-video-list' : ''}`}
+                          className={`d-flex align-items-center mb-3 pe-1 cursor-pointer video-list ${activeVideo === video.key ? 'active-video-list' : ''}`}
                           onClick={() => setActiveVideo(video.key)}
                         >
                           <img
