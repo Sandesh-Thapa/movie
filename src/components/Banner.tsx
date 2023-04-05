@@ -13,7 +13,7 @@ import YouTube from "react-youtube"
 const Banner = ({ movie, infoButton = false }: bannerPropType) => {
   const [isOpen, setIsOpen] = useState(false)
   const [videos, setVideos] = useState<videoType[]>([])
-  const [activeVideo, setActiveVideo] = useState("")
+  const [activeVideo, setActiveVideo] = useState<string | undefined>("")
   const [loading, setLoading] = useState(false)
   const API_KEY = import.meta.env.VITE_API_KEY;
   const API = import.meta.env.VITE_API;
@@ -66,12 +66,40 @@ const Banner = ({ movie, infoButton = false }: bannerPropType) => {
     {isOpen &&
       createPortal(
         <div className="modal-wrapper">
-          <i className="fa-solid fa-times fa-2xl position-absolute cursor-pointer" style={{ right: "10px", top: "20px" }} onClick={() => setIsOpen(false)} />
+          <i className="fa-solid fa-times fa-2xl position-absolute cursor-pointer" style={{ right: "10px", top: "20px", zIndex: "10" }} onClick={() => setIsOpen(false)} />
           <div className="modal-content hp-100">
             {loading ?
               <Skeleton style={{ height: "100%", borderRadius: 0 }} baseColor="#202020" highlightColor="#444" />
               :
-              <YouTube videoId={activeVideo} className="hp-100" iframeClassName="wp-100 hp-100"/>
+              (
+                <div className="row hp-100">
+                  <div className="col-12 col-md-10 youtube-wrapper">
+                    <YouTube videoId={activeVideo} className="hp-100" iframeClassName="wp-100 hp-100" />
+                  </div>
+                  <div className="col-12 col-md-2 order-md-first">
+                    <h5 className="fw-700 py-3">Videos</h5>
+                    <div className="video-list-wrapper">
+                      {videos.map(video => (
+                        <div
+                          key={video.id}
+                          className={`d-flex align-items-center mb-3 cursor-pointer video-list ${activeVideo === video.key ? 'active-video-list' : ''}`}
+                          onClick={() => setActiveVideo(video.key)}
+                        >
+                          <img
+                            src={`https://img.youtube.com/vi/${video.key}/0.jpg`}
+                            alt={video.name}
+                            className="img-fluid me-2"
+                          />
+                          <p className="fw-400 mb-0">
+                            {activeVideo === video.key && <i className="fa-solid fa-circle-play me-2"></i>}
+                            {video.name}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )
             }
           </div>
         </div>,

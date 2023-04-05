@@ -63,12 +63,54 @@ footer img {
 
 .modal-content {
   position: absolute;
-  /* background: #fff; */
+  background: #000;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
-  width: 90%;
+  width: calc(100% - 36px);
   height: 90%;
   border-radius: 5px;
+}
+
+.video-list-wrapper {
+  height: calc(100vh - 100px);
+  overflow-y: scroll;
+}
+
+.video-list-wrapper::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 5px;
+}
+
+.video-list-wrapper::-webkit-scrollbar-track {
+  background-color: rgb(8, 8, 8);
+  border-radius: 5px;
+}
+
+.video-list-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgb(118, 118, 118);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.active-video-list {
+  background: #3d3d3d;
+  color: #ccc;
+}
+
+.video-list img {
+  width: 50px;
+  height: 50px;
+}
+
+.video-list:hover {
+  background: #181818;
+  color: #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  .youtube-wrapper {
+    height: 70vh;
+  }
 }
