@@ -42,6 +42,7 @@
 .company-logo {
   max-width: 100px;
   background: #fff;
+  object-fit: contain;
 }
 
 footer img {
