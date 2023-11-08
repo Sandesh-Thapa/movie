@@ -112,6 +112,6 @@ footer img {
 
 @media screen and (max-width: 768px) {
   .youtube-wrapper {
-    height: 70vh;
+    height: 50vh;
   }
 }
